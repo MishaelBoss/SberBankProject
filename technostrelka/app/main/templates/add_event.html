@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Добавить событие</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <a class="btn-black" href="/"><img src="/static/images/left-arrow.png">Назад</a>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="block-create-event" style="animation: 1s show ease;">
+            <img class="logo" src="/static/images/Лого-8.png">
+            <h1>Добавить ивент</h1>
+            <div class="content-create-event">
+                <div class="start-input">
+                    <div class="label">
+                        <label>Начало</label>
+                        <input type="date" name="from_date" class="date-input">
+                    </div>
+                    <div class="label">
+                        <label>Конец</label>
+                        <input type="date" name="to_date" class="date-input">
+                    </div>
+                    <input type="number" class="price-input" style="margin-left: 20px;" placeholder="Кол билетов" name="places" min="1">
+                    <input type="text" class="price-input" style="margin-left: 20px;" placeholder="бонусы" name="balance" min="1">
+                    <br>
+                    <input style="margin-left: 20px;" type="file" id="fileUpload" name="image" accept="image/*"/>
+                </div>
+                <div class="input-end">
+                    <input type="text" style="margin-right: 20px; width: 400px; margin-bottom: 15px;" class="price-input" name="name" placeholder="Название">
+                    <select name="is_public">
+                        <option value="private">Внутреннее</option>
+                        <option value="public">Внешнее</option>
+                    </select><br>
+                    <textarea class="more-input" name="description" placeholder="Описание"></textarea>
+
+                </div>
+            </div>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;">
+                Добавить
+            </button>
+        </div>
+    </form>
+</body>
+</html>

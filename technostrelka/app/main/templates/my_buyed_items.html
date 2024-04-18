@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Мои Мероприятия</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    {% for item in items %}
+        <div class="product" style="margin-top: 100px;" id="event_{{event.id}}">
+            <div class="product-photo">
+                <img src="/media/{{item.image}}">
+            </div>
+            <div class="product-end-content">
+                <div class="product-plane">
+                    <h1 class="text-Rubik">{{item.name}}</h1>
+                    <p class="text-Korean">{{item.description}}</p>
+                    <p class="text-Korean">{{item.price}}₿</p>
+                    <p class="text-Korean">{{item.message_upon_receipt}}</p>
+                </div>
+            </div>
+        </div><br>
+    {% endfor %}
+</body>
+</html>

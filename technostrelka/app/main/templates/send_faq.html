@@ -1,0 +1,19 @@
+<div id="id01" class="modal">
+<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Закрыть">&times;</span>
+  <form class="modal-content animate" action="/send_faq/" method="post">
+    <div>
+      <h1 style="text-align: center; color: black; font-family: 'Rubik', sans-serif;">FAQ</h1>
+    </div>
+    <div style="background-color:#f1f1f1; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px;">
+        <div class="content-SHITSBERBANKCATYESYOUGOT">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <textarea class="more-input" style="height: 50px; margin-left: -5px;" name="message" placeholder="          Описание проблемы"></textarea><br>
+                <button class="btn-profile" style="background: rgba(8, 166, 82, 1); color: white;">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+  </form>
+</div>

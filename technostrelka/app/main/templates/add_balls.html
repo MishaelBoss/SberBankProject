@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>SberEvent</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    {% include 'send_faq.html' %}
+    <a class="btn-black" href="/"><img src="/static/images/left-arrow.png">Назад</a>
+    
+    <form action="" method="post">
+         <!-- <input type="checkbox" name="users" id="" value="{{user.username}}"><label>{{user.username}} | {{user.email}} | {{user.first_name}} | {{user.last_name}}</label><br> -->
+
+        <div class="block-create-event" style="    background-color: rgba(217, 217, 217, 0.6);">
+            <p style="text-align: center; font-size: 2rem; font-family: 'Roboto', sans-serif;">Список участников</p>
+            <div class="content-create-event" style="justify-content: center; margin-left: auto; margin-right: auto; justify-content: space-between; align-items: center; width: 100%; height: 70%;">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Выбор участника</th>
+                            <th>Логин</th>
+                            <th>почта</th>
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                        </tr>
+                    </thead>
+                    {% csrf_token %}
+                    {% for user in users %}
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" name="users" id="" value="{{user.username}}"></td>
+                            <td>{{ user.username }}</td>
+                            <td>{{ user.email }}</td>
+                            <td>{{ user.first_name }}</td>
+                            <td>{{user.last_name}}</td>
+                        </tr>
+                    </tbody>
+                    {% endfor %}
+                </table>
+            </div>
+            <button class="btn-profile">Выдать баллы</button>
+        </div>
+        
+    </form>
+</body>
+</html>

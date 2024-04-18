@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Мои Мероприятия</title>
+</head>
+<body style="text-align: center;">
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    <h1>Ваш баланс: {{balance}}₿</h1>
+    <button class="btn-base" style="height: 50px; border-color: black;" onclick="redirect('/my_buyed_items')">
+        Посмотреть товары, купленные ранее
+    </button>
+    {% if items %}
+    {% for item in items %}
+        <div class="block-shop-item" style="animation: 1s show ease;">
+            <img class="logo" src="/static/images/Лого-8.png">
+            <h1 class="text-Rubik">{{item.name}}</h1>
+                    <img src="/media/{{item.image}}" alt="" width="20%" style="border-radius: 5px; margin-left: auto; margin-right: auto;">
+                    <h1 style="font-family: 'Roboto', sans-serif;">Цена: {{item.price}}₿</h1>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/view_shop_item?item_id={{item.id}}')">
+                Подробнее
+            </button>
+        </div>
+    {% endfor %}
+    {% else %}
+    <div class="box" style="margin-top: 90px; animation: 1s show ease; height: 200px; width: 1000px; background: linear-gradient(90deg, rgb(191, 43, 43), rgb(145, 19, 19), rgb(146, 6, 6)); box-shadow: inset 0 0 6px rgba(0,0,0,0.3);">
+        <div class="content-start-box" style="display: flex;width: 100%;height: 100%;align-items: center;justify-content: center;">
+            <p style="top: -20px; font-weight: 150; font-size: 3.2rem; position: relative;">Ничего не нашел :(</p>
+            <video style="float: right; width: 20%;" src="/static/video/ErrorCat.webm" type="video/webm" loop="loop" autoplay muted></video>
+        </div>
+    </div>
+    {% endif %}
+</body>
+</html>

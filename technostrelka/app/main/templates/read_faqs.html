@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Все FAQ</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% if faqs %}
+    {% for faq in faqs %}
+        <div class="block-shop-item" style="animation: 1s show ease;">
+            <h1>{{faq.author}}</h1>
+            <p>{{faq.message}}</p>
+                    <img src="/media/{{item.image}}" alt="" width="20%" style="margin-left: auto; margin-right: auto;">
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/delete_faq?faq_id={{faq.id}}')">
+                Удалить
+            </button>
+        </div><br>
+        
+    {% endfor %}
+    {% else %}
+    <p>Ничего не найдено</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/header.css">
+        <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Просмотр мероприятия</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    <a class="btn-black" href="/"><img src="/static/images/left-arrow.png">Назад</a>
+        <div style="display: flex;justify-content: center;align-items: flex-end;">
+            <div class="box" style="margin-top: 100px; margin-left: 20px; height: 500px; width: 900px; border-radius: 50px;  box-shadow: 0 0 40px rgba(8,7,16,0.6);">
+                <img style="width: 100%;height: 100%;" src="/media/{{event.image}}">
+            </div>
+            <div class="box" style="background: rgba(0,0,0, 0.5); width: 500px; height: 500px; display: grid; justify-items: center; justify-content: center; align-items: center; border-radius: 50px;  box-shadow: 0 0 40px rgba(8,7,16,0.6);">
+                <div class="content-text">
+                    <h1>Название: {{event.name}}</h1>
+                    <br>
+                    <p style="font-size: 2rem;">Дата начала: {{event.from_date}}</p>
+                    <p style="font-size: 2rem;">Дата окончания: {{event.to_date}}</p>
+                    <p style="font-size: 1.5rem;">Осталось мест: {{event.places}}</p>
+                    <p style="font-size: 1.5rem;">Баллы: {{event.balance}}</p>
+                    <p style="font-size: 1.5rem;">{% if event.is_public %}Внешнее{% else %} Внутреннее{% endif %}</p>
+                    <p style="font-size: 1.5rem;">Организатор: @{{event.author}}</p>
+                    <a href="mailto:{{email}}">Написать организатору</a><br>
+                    <button onclick="redirect('/get_participats?event_id={{event.id}}')">Посмотреть участников</button>
+                </div>
+            </div>
+        </div>
+        <div class="box-content-more">
+            <p>Описание</p>
+            <p>{{event.description}}</p>
+        </div>
+        <br>
+    
+</body>
+</html>

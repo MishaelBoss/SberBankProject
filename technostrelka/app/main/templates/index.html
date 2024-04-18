@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>SberEvent</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    <div class="box" style="margin-top: 90px; animation: 5s show ease;">
+        <div class="content-start-box">
+            <section class="banner">
+                <p>Сбер ивенты</p>
+            </section>
+            <section class="content">
+                <p style="-webkit-text-stroke: 4px white; font-size: 5vw; color: transparent;">Сбер ивенты</p>
+            </section>
+            <p style="top: -20px; font-size: 3.2rem; position: relative;">Сбер имба</p>
+            <img src="/static/images/Cat.png">
+        </div>
+    </div>
+    {% include 'send_faq.html' %}
+    <div class="serch">
+        <form action="" method="get"><input type="text" name="query" placeholder="Введите запрос" value="{{query}}"><button><img src="/static/images/button-serch.png"></button></form><br>
+    </div>
+    <div class="content-base">
+        {% if events %}
+        {% for event, p, delta, delta_1 in events %}
+
+        <div class="card">
+          <div class="card__content">
+            <img
+              class="card__image"
+              src="/media/{{event.image}}"
+              alt=""
+            />
+            <h2 class="card__title">{{ event.name }}</h2>
+            <p class="card__description">{% if event.is_public %}Внешнее{% else %} Внутреннее{% endif %}</p>
+            <p class="card__description">{{ event.places }} мест осталось</p>
+            <p class="card__description">{% if delta_1 > 0 %} до начала осталось {{ delta_1 }} дней {%else%} мероприятие началось {%endif%}</p>
+            <div style="display: flex;width: 100%;">
+                {% if not p %}
+                <button onclick="redirect('/participate?event_id={{event.id}}')" class="btn-base" >
+                    Участвовать
+                </button>
+                {% else %}
+                {% if delta_1 > 1 %}
+                <button onclick="redirect('/unparticipate?event_id={{event.id}}')" class="btn-base">
+                    Отказаться от участия
+                </button>
+                {% endif %}
+                {% endif %}
+                <button onclick="redirect('/view_event?event_id={{event.id}}')" class="btn-base">
+                    Подробнее
+                </button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="box" style="margin-top: 90px; animation: 1s show ease; height: 200px; width: 1000px; background: linear-gradient(90deg, rgb(191, 43, 43), rgb(145, 19, 19), rgb(146, 6, 6)); box-shadow: inset 0 0 6px rgba(0,0,0,0.3);">
+            <div class="content-start-box" style="display: flex;width: 100%;height: 100%;align-items: center;justify-content: center;">
+                <p style="top: -20px; font-weight: 150; font-size: 3.2rem; position: relative;">Ничего не нашел :(</p>
+                <video style="float: right; width: 20%;" src="/static/video/ErrorCat.webm" type="video/webm" loop="loop" autoplay muted></video>
+            </div>
+        </div>
+        {% endif %}
+    </div> <br>
+    {% include 'footer.html' %}
+</body>
+</html>

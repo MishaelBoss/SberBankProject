@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500&family=Rubik&family=Zen+Maru+Gothic:wght@400;500&display=swap');
+
+header{
+    width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+    padding: 20px 10px 20px 10px;
+    margin-top: 0;
+    display: block;
+}
+
+.header{
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header a{
+    width: 10%;
+}
+
+.header img{
+    width: 100%;
+}
+
+.header button{
+    background: transparent;
+    border-color: transparent;
+    color: black;
+    font-size: 1.2rem;
+    padding: 0 10px;
+    transition: 0.5s;
+    /* font-family: 'Zen Maru Gothic', serif; */
+}
+
+button:hover{
+    color: rgb(194, 194, 194);
+}
+
+.button{
+    display: flex;
+}

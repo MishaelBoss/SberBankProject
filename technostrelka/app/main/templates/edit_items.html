@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Мои Мероприятия</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    {% if items %}
+    {% for item in items %}
+
+        <div class="block-shop-item" style="animation: 1s show ease;">
+            <img class="logo" src="/static/images/Лого-8.png">
+            <h1 class="text-Rubik">{{item.name}}</h1>
+                    <img src="/media/{{item.image}}" alt="" width="20%" style="margin-left: auto; margin-right: auto;">
+                    <h1 class="text-Korean">Цена: {{item.price}}₿</h1>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/view_shop_item?item_id={{item.id}}')">
+                Подробнее
+            </button>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/edit_item?item_id={{item.id}}')">
+                Изменить
+            </button>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/delete_item?item_id={{item.id}}')">
+                Удалить
+            </button>
+        </div>
+        
+    {% endfor %}
+    {% else %}
+    <p>Ничего не найдено</p>
+    {% endif %}
+</body>
+</html>

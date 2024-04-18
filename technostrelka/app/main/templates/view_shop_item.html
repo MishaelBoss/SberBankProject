@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Просмотр мероприятия</title>
+</head>
+<body>
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% include 'header.html' %}
+    <a class="btn-black" href="/shop"><img src="/static/images/left-arrow.png">Назад</a>
+    <div class="product" style="margin-top: 100px;">
+        <div class="product-photo">
+            <img src="/media/{{item.image}}" alt="" width="100%">
+        </div>
+        <div class="product-end-content">
+            <div class="product-plane">
+                <p>{{item.name}}</p>
+                <p>{{item.description}}</p>
+                <p>Цена: {{item.price}}₿</p>
+                <button class="btn-profile" onclick="redirect('/buy?item_id={{item.id}}')">Купить</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

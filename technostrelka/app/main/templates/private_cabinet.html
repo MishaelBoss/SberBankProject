@@ -1,0 +1,38 @@
+<!DOCTYPE html> 
+{% load static %}
+<html>
+    <head>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/header.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+      <title>user</title>
+    </head>
+<body style="overflow: hidden;">
+<script src="/static/js/redirect.js"></script>
+{% include 'header.html' %}
+<div class="block-create-event">
+    <div class="content-create-event" style="display: grid; justify-content: center; align-items: center;">
+        <button class="btn-profile" onclick="redirect('/eventsmy')">
+            Ваши ивенты
+        </button>
+        {% if user.is_staff %}
+        <button class="btn-profile"  onclick="redirect('/myevents')">
+            Ивенты, в которых вы Организатор
+        </button>
+        <button class="btn-profile"  onclick="redirect('/edit_items')">
+            Редактировать товары
+        </button>
+        <button class="btn-profile"  onclick="redirect('/add_event')">
+            Добавить ивент
+        </button>
+        <button class="btn-profile"  onclick="redirect('/add_shop_item')">
+            Добавить товар
+        </button>
+        {% endif %}
+    </div>
+</div>
+
+<img style="float: right;" src="/static/BG/Group_102-min.png">
+</body>
+</html>

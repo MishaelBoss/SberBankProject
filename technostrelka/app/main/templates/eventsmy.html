@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Мои Мероприятия</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <script src="{% static 'js/redirect.js' %}"></script>
+    {% for event in events %}
+        <div class="block-shop-item" style="animation: 1s show ease;">
+            <img class="logo" src="/static/images/Лого-8.png">
+            <h1 class="text-Rubik">{{event.name}}</h1>
+            <p class="text-Korean">{% if event.is_public %}Внешнее{% else %} Внутреннее{% endif %}</p>
+            <p class="text-Korean"></p>{{event.from_date}}</p>
+            <p class="text-Korean">{{event.to_date}}</p>
+            <p class="text-Korean">{{event.id}}</p>
+            <button class="btn-base" style="width: 150px; height: 50px; margin-left: 40%; border-color: black;" onclick="redirect('/view_event?event_id={{event.id}}')">
+                Подробнее
+            </button>
+        </div>
+    {% endfor %}
+</body>
+</html>

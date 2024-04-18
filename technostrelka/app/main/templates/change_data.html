@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/registr.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Изменить данные</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    {% include 'send_faq.html' %}
+    <script src="{% static 'js/redirect.js' %}"></script>
+    <form class="form-reg" style="position: absolute;height: 700px; margin-top: 150px;" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="/static/images/Лого-8.png">
+        <div class="input">
+            <div class="text">
+              <label>Имя</label>
+            </div>
+            <input type="text" placeholder="Имя" name="first_name" value="{{user.first_name}}">
+          </div>
+          <div class="input">
+            <div class="text">
+              <label>Фамилия</label>
+            </div>
+            <input type="text" placeholder="Фамилия" name="last_name" value="{{user.last_name}}">
+          </div>
+        <div class="input">
+            <div class="text">
+              <label>Email</label>
+            </div>
+            <input type="email" placeholder="Email" name="email" value="{{user.email}}">
+          </div>
+        <div class="input">
+          <div class="text">
+            <label>Старый Пароль</label>
+          </div>
+          <input type="password" name="old_password" placeholder="Старый Пароль" class="psswrd"> 
+        </div>
+
+        <div class="input">
+            <div class="text">
+              <label>Новый Пароль</label>
+            </div>
+            <input type="password" name="new_password" placeholder="Новый Пароль" class="psswrd"> 
+          </div>
+        
+      
+        <div class="checkPassword">
+            <input style="width: 2rem;" type="checkbox" id="shwpsswrd"><p>Посмотреть пароли</p>
+          </div>
+        <br>
+        <button style="height: 10%;">
+          Изменить
+        </button>
+      </form>
+      <img style="z-index: 0; float: right; bottom: 0; left: -350px; width: 20%;" src="/static/images/Cat.png">
+    <script src="{% static 'js/password.js' %}"></script>
+</body>
+</html>

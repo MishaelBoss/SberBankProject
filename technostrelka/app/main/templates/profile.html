@@ -1,0 +1,34 @@
+<!DOCTYPE html> 
+{% load static %}
+<html>
+    <head>
+      <link rel="stylesheet" href="/static/css/style.css">
+      <link rel="stylesheet" href="/static/css/header.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+      <title>user</title>
+    </head>
+</html>
+<body style="overflow: hidden;">
+<script src="/static/js/redirect.js"></script>
+{% include 'header.html' %}
+<div class="block-create-event">
+    <div class="content-create-event" style="justify-content: center; margin-left: auto; margin-right: auto; justify-content: space-between; align-items: center; width: 100%; height: 70%;">
+        <button class="btn-profile" onclick="redirect('/logout')">
+            Выйти
+        </button>
+        <button class="btn-profile"  onclick="redirect('/login')">
+            Войти
+        </button>
+        <button class="btn-profile"  onclick="redirect('/register')">
+            Регистрация
+        </button>
+        <button class="btn-profile"  onclick="redirect('/change_data')">
+            Редактировать данные
+        </button>
+    </div>
+</div>
+
+<img style="z-index: 0; float: right;left: -50px;" src="/static/BG/Group_102-min.png">
+
+</body>

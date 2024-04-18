@@ -1,0 +1,79 @@
+body{
+    background: linear-gradient(120deg, rgb(33, 186, 80), rgb(81, 164, 91), white);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.form-reg{
+    z-index: 1;
+    position: relative;
+    height: 400px;
+    width: 300px;
+    top: 50%;
+    left: 20%;
+    padding: 50px 35px;
+    background-color: white;
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border-radius: 10px;
+    animation: ani 1.2s forwards;
+}
+
+@keyframes ani {
+    0% {transform: translateX(-150%);}
+    100% {transform: translate(-50%,-50%);}
+}
+
+img{
+    position: relative;
+    width: 50%;
+    left: 50px;
+}
+
+.input{
+    display: grid;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.form-reg input{
+    width: 300px;
+    height: 50px;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 5px;
+}
+
+.text{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.2rem;
+    padding: 5px 0 5px 0;
+}
+
+.form-reg button{
+    width: 100%;
+    height: 15%;
+    border: transparent;
+    color: rgb(255, 255, 255);
+    background-color: rgb(33, 186, 114);
+    border-radius: 2px;
+    font-size: 1.2rem;
+}
+
+.form-reg button:hover{
+    color: rgb(194, 194, 194);
+}
+.checkPassword{
+    display: flex;
+    align-items: center; 
+    size: 0.5rem;
+}
+
+.form-reg a{
+    font-size: 1.1rem;
+    text-decoration: dashed;
+}
+  

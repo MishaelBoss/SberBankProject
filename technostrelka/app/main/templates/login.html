@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registr.css' %}">
+    <link rel="stylesheet" href="/static/css/header.css">
+    <link rel="shortcut icon" href="{% static 'icons/CBERMEDIASMOKING.png' %}" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body style="overflow: hidden;">
+  {% include 'header.html' %}
+  {% include 'send_faq.html' %}
+  <script src="{% static 'js/redirect.js' %}"></script>
+    <form class="form-reg" style="position: absolute;" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="/static/images/Лого-8.png">
+        <div class="input">
+          <div class="text">
+            <label>Логин или Email</label>
+          </div>
+          <input type="text" placeholder="Логин или Email" name="login">
+        </div>
+      
+        <div class="input">
+          <div class="text">
+            <label>Пароль</label>
+          </div>
+          <input type="password" name="password" placeholder="Пароль" class="psswrd"> 
+        </div>
+      
+        <div class="checkPassword">
+            <input style="width: 2rem;" type="checkbox" id="shwpsswrd"><p class="text-Korean">Посмотреть пароль</p>
+        </div>
+      
+        <br>
+        <button id="button">
+          Войти
+        </button>
+        <a href="/register">Нет аккаунта</a>
+      </form>
+      
+      <img style="z-index: 0; float: right; bottom: 90px; left: -50px;" src="/static/BG/Group_104-min.png">
+    <script src="{% static 'js/password.js' %}"></script>
+</body>
+</html>

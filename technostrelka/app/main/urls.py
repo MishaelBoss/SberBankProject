@@ -1,0 +1,33 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index),
+    path('login/', views.login_page),
+    path('register/', views.register_page),
+    path('add_event/', views.add_event),
+    path('participate/', views.participate),
+    path('unparticipate/', views.unparticipate),
+    path('myevents/', views.myevents),
+    path('view_event/', views.view_event),
+    path('get_participats/', views.get_participats),
+    path('change_data/', views.change_data),
+    path('edit_event/', views.edit_event),
+    path('delete_event/', views.delete_event),
+    path('add_shop_item/', views.add_shop_item),
+    path('shop/', views.shop),
+    path('view_shop_item/', views.view_shop_item),
+    path('add_balls/', views.add_balls),
+    path('buy/', views.buy),
+    path('my_buyed_items/', views.my_buyed_items),
+    path('edit_items/', views.edit_items),
+    path('edit_item', views.edit_item),
+    path('delete_item', views.delete_item),
+    path('send_faq/', views.send_faq),
+    path('read_faqs/', views.read_faq_messages),
+    path('delete_faq/', views.delete_faq),
+    path('profile/', views.profile),
+    path('logout/', views.logout_page),
+    path('private_cabinet/', views.private_cabinet),
+    path('eventsmy/', views.events_my),
+]
