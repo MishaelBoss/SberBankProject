@@ -1,12 +1,21 @@
 # SberBankProject
-Technostrelka CberEvent
+## Technostrelka CberEvent
 
-Admin panel:
+## Admin panel:
 
-name: admin
-passwoed: 12345
+> **name: admin**
+>> **passwoed: 12345**
 
-Админ панель:
+## Админ панель:
 
-имя: admin
-пароль: 12345
+> **имя: admin**
+>> **пароль: 12345**
+
+## Установка
+
+**pip install django**
+
+**pip install pillow**
+```python 
+pip install django, pillow
+```
